@@ -1,0 +1,23 @@
+{
+  "name": "entergrate_finland",
+  "version": "1.0.0",
+  "description": "Empowering Immigrants for Inclusive Integration",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/semosem/entergrate_finland.git"
+  },
+  "keywords": [
+    "inspiration",
+    "community"
+  ],
+  "author": "Entergrate_team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/semosem/entergrate_finland/issues"
+  },
+  "homepage": "https://github.com/semosem/entergrate_finland#readme"
+}
