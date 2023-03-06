@@ -150,6 +150,17 @@ prevBtn.addEventListener('click', function() {
 });
 
 
+const stopAllVideos = () => { 
+  var iframes = document.querySelectorAll('iframe');
+
+
+  Array.prototype.forEach.call(iframes, iframe => { 
+
+    iframe.contentWindow.postMessage(JSON.stringify({ event: 'command', 
+  func: 'stopVideo' }), '*');
+ });
+}
+
 
 // close modal when user clicks outside of it
 const closeBtn = document.querySelector('.close');
@@ -157,6 +168,7 @@ window.onclick = function(event) {
   if (event.target == modal || event.target == closeBtn) {
     modal.style.display = 'none';
     document.body.style.overflow = 'auto';
+    stopAllVideos();
   }
 };
 

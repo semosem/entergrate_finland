@@ -57,7 +57,7 @@
   top: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.9);
   z-index: 9999;
 
 }
@@ -104,7 +104,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap');
 .modal-video .description {
   padding: 10px;
-  color: red;
+  color: white;
   
   background-color: rgba(0, 0, 0, 0.3);
   font-size: 14px;
@@ -113,11 +113,11 @@
 
 }
 
-.modal-video .social_links {
+.social_links {
   /* position: absolute; */
   display: flex;
   justify-content: center;
-  gap: 16px;
+  gap: 1.75rem;
 }
 
 .next, .prev {
@@ -4232,7 +4232,7 @@ textarea.form-control-lg {
 }
 
 .navbar-brand .active {
-    border-bottom: 2px dotted #b19e5b;
+    /* border-bottom: 2px dotted #b19e5b; */
     /* border-top: 2px dotted #b19e5b; */
 }
 
@@ -7942,7 +7942,7 @@ textarea.form-control-lg {
 .text-white {
   --bs-text-opacity: 1;
   color: white !important;
-  border-radius: 10px;
+  /* border-radius: 10px; */
 
   padding: 15px 24px;
 }
