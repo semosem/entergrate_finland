@@ -373,7 +373,10 @@
         </div>
         <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
           <div class="col-lg-6">
-            <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+            <form
+              id="contactForm"
+              action="https://formspree.io/f/moqzdggq"
+              method="POST">
               <!-- Name input-->
               <div class="form-floating mb-3">
                 <input
@@ -381,7 +384,8 @@
                   id="name"
                   type="text"
                   placeholder="Enter your name..."
-                  data-sb-validations="required" />
+                  required
+                  name="name" />
                 <label for="name">Full name</label>
                 <div class="invalid-feedback" data-sb-feedback="name:required">
                   A name is required.
@@ -393,8 +397,9 @@
                   class="form-control"
                   id="email"
                   type="email"
+                  name="email"
                   placeholder="name@example.com"
-                  data-sb-validations="required,email" />
+                  required />
                 <label for="email">Email address</label>
                 <div class="invalid-feedback" data-sb-feedback="email:required">
                   An email is required.
@@ -409,6 +414,7 @@
                   class="form-control"
                   id="phone"
                   type="tel"
+                  name="phone"
                   placeholder="(123) 456-7890"
                   data-sb-validations="required" />
                 <label for="phone">Phone number</label>
@@ -422,9 +428,10 @@
                   class="form-control"
                   id="message"
                   type="text"
+                  name="message"
                   placeholder="Enter your message here..."
                   style="height: 10rem"
-                  data-sb-validations="required"></textarea>
+                  required></textarea>
                 <label for="message">Message</label>
                 <div
                   class="invalid-feedback"
@@ -436,7 +443,7 @@
               <!---->
               <!-- This is what your users will see when the form-->
               <!-- has successfully submitted-->
-              <div class="d-none" id="submitSuccessMessage">
+              <!-- <div class="d-none" id="submitSuccessMessage">
                 <div class="text-center mb-3">
                   <div class="fw-bolder">Form submission successful!</div>
                   To activate this form, sign up at
@@ -445,20 +452,20 @@
                     >https://startbootstrap.com/solution/contact-forms</a
                   >
                 </div>
-              </div>
+              </div> -->
               <!-- Submit error message-->
               <!---->
               <!-- This is what your users will see when there is-->
               <!-- an error submitting the form-->
-              <div class="d-none" id="submitErrorMessage">
+              <!-- <div class="d-none" id="submitErrorMessage">
                 <div class="text-center text-danger mb-3">
                   Error sending message!
                 </div>
-              </div>
+              </div> -->
               <!-- Submit Button-->
               <div class="d-grid">
                 <button
-                  class="btn btn-primary btn-xl disabled"
+                  class="btn btn-primary btn-xl"
                   id="submitButton"
                   type="submit">
                   Submit

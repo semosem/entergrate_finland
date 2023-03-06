@@ -7950,6 +7950,7 @@ textarea.form-control-lg {
 .speach {
   background-color: #000;
   opacity: 0.69;
+  border-radius: 7px ;
 }
 
 .text-body {
