@@ -172,3 +172,48 @@ window.onclick = function(event) {
   }
 };
 
+// Set the date we're counting down to
+var countDownDate = new Date("May 6, 2023 12:00:00").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  // Calculate days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Output the result in an element with id="countdown"
+  document.querySelector("#countdown .days").textContent = days;
+  document.querySelector("#countdown .hours").textContent = hours;
+  document.querySelector("#countdown .minutes").textContent = minutes;
+  document.querySelector("#countdown .seconds").textContent = seconds;
+
+  // If the count down is over, show a message
+  if (distance < 0) {
+    clearInterval(x);
+    document.querySelector("#countdown").innerHTML = "Event has ended.";
+  }
+}, 1000);
+
+
+    const openEventDetails = document.querySelector('.open_event_details');
+    const modalContainer = document.querySelector('.event_modal-container');
+    const closeModal = document.querySelector('.close-event_modal');
+
+    openEventDetails.addEventListener('click', function() {
+      modalContainer.style.display = 'flex';
+    });
+
+    closeModal.addEventListener('click', function() {
+      modalContainer.style.display = 'none';
+    });
+
+
