@@ -289,10 +289,10 @@
   flex-wrap: wrap;
 }
 
-.event_modal-content img {
-  width: 45%;
-  margin: 10px;
-  border-radius: 10px;
+.event_modal-content iframe {
+  border: 10px solid #fff;
+  border-radius: 25px;
+  box-shadow: 0px 0px 20px #000;
 }
 
 .event_modal-content h2 {
@@ -318,8 +318,9 @@
 }
 
 @media only screen and (max-width: 767px) {
-  .event_modal-content img {
+  .event_modal-content iframe {
     width: 90%;
+    /* height: auto; */
   }
 }
 
