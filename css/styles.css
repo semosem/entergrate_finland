@@ -10,6 +10,11 @@
 
   }
 
+.next_spotlight{
+  max-width: 100vw;
+  max-height: 720px;
+}
+
   .glitch-container {
     position: absolute;
     top: 0;
