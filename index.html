@@ -22,7 +22,7 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/styles.css?v=20260808-9" />
+    <link rel="stylesheet" href="css/styles.css?v=20260808-11" />
     <script src="js/scripts.js?v=20260808-3" defer></script>
   </head>
   <body>
@@ -31,7 +31,12 @@
     <nav class="site-nav" aria-label="Main navigation">
       <div class="nav-inner shell">
         <a class="brand" href="#top" aria-label="Entergrate Finland home">
-          <img src="assets/img/nav-logo.png" alt="" />
+          <svg class="brand-symbol" viewBox="0 0 44 44" aria-hidden="true">
+            <circle cx="22" cy="22" r="19"></circle>
+            <path d="M7 23h6l2-7 4 15 4-20 4 25 4-13h6"></path>
+          </svg>
+          <span class="brand-word">Entergrate</span>
+          <span class="brand-country">Finland</span>
         </a>
         <button
           class="nav-toggle"
@@ -65,13 +70,16 @@
         <div class="hero-overlay"></div>
         <div class="shell hero-inner">
           <div class="hero-copy reveal">
-            <p class="eyebrow light">Immigrant-led · Helsinki, Finland</p>
+            <p class="eyebrow light">Helsinki · Workshops, dialogue &amp; community</p>
             <h1>A more welcoming world starts with people coming together.</h1>
-            <p class="hero-intro">
-              Immigrants, communities, and institutions meet here to share lived
-              experience, build useful connections, and make work and everyday life
-              in Finland easier to navigate.
-            </p>
+            <div class="hero-intro">
+              <strong>Meet across cultures. Move forward together.</strong>
+              <p>
+                Local communities, immigrants from around the world, and institutions
+                exchange experience, build useful connections, and make Finland easier
+                to navigate—at work and beyond.
+              </p>
+            </div>
             <div class="button-row">
               <a class="button primary" href="#next-event">Join the next workshop</a>
               <a class="button secondary" href="#our-work">See our work</a>
@@ -421,7 +429,14 @@
 
     <footer class="site-footer">
       <div class="shell footer-inner">
-        <a class="brand" href="#top"><img src="assets/img/nav-logo.png" alt="Entergrate Finland" /></a>
+        <a class="brand" href="#top" aria-label="Entergrate Finland home">
+          <svg class="brand-symbol" viewBox="0 0 44 44" aria-hidden="true">
+            <circle cx="22" cy="22" r="19"></circle>
+            <path d="M7 23h6l2-7 4 15 4-20 4 25 4-13h6"></path>
+          </svg>
+          <span class="brand-word">Entergrate</span>
+          <span class="brand-country">Finland</span>
+        </a>
         <p>Community · Dialogue · Opportunity</p>
         <p>© <span data-year>2026</span> Entergrate Finland</p>
       </div>
