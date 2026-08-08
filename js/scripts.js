@@ -1,204 +1,237 @@
-/*!
- * Start Bootstrap - Creative v7.0.6 (https://startbootstrap.com/theme/creative)
- * Copyright 2013-2022 Start Bootstrap
- * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-creative/blob/master/LICENSE)
- */
-//
-// Scripts
-//
+const body = document.body;
+const navToggle = document.querySelector(".nav-toggle");
+const navLinks = document.querySelector(".nav-links");
 
-window.addEventListener("DOMContentLoaded", (event) => {
-  const images = new Array(3);
+function closeNavigation() {
+  if (!navToggle || !navLinks) return;
+  navLinks.classList.remove("open");
+  navToggle.setAttribute("aria-expanded", "false");
+  navToggle.querySelector(".sr-only").textContent = "Open navigation";
+}
 
-  let currentIndex = 0;
-  const glitchImages = document.querySelectorAll(".glitch-image");
+if (navToggle && navLinks) {
+  navToggle.addEventListener("click", () => {
+    const isOpen = navLinks.classList.toggle("open");
+    navToggle.setAttribute("aria-expanded", String(isOpen));
+    navToggle.querySelector(".sr-only").textContent = isOpen
+      ? "Close navigation"
+      : "Open navigation";
+  });
 
-  function updateCarousel() {
-    glitchImages.forEach((image, index) => {
-      if (index === currentIndex) {
-        image.classList.add("current");
-      } else {
-        image.classList.remove("current");
-      }
-    });
+  navLinks.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", closeNavigation);
+  });
+}
+
+const carousel = document.querySelector("[data-carousel]");
+const carouselSlides = [...document.querySelectorAll(".hero-slide")];
+const carouselDots = [...document.querySelectorAll("[data-carousel-dot]")];
+const carouselPrevious = document.querySelector("[data-carousel-prev]");
+const carouselNext = document.querySelector("[data-carousel-next]");
+const carouselPause = document.querySelector("[data-carousel-pause]");
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+let carouselIndex = 0;
+let carouselTimer = null;
+let carouselPaused = prefersReducedMotion.matches;
+
+function showCarouselSlide(index) {
+  if (!carouselSlides.length) return;
+  carouselIndex = (index + carouselSlides.length) % carouselSlides.length;
+  carouselSlides.forEach((slide, slideIndex) => {
+    slide.classList.toggle("active", slideIndex === carouselIndex);
+  });
+  carouselDots.forEach((dot, dotIndex) => {
+    const isActive = dotIndex === carouselIndex;
+    dot.classList.toggle("active", isActive);
+    if (isActive) dot.setAttribute("aria-current", "true");
+    else dot.removeAttribute("aria-current");
+  });
+}
+
+function stopCarousel() {
+  if (carouselTimer) window.clearInterval(carouselTimer);
+  carouselTimer = null;
+}
+
+function startCarousel() {
+  stopCarousel();
+  if (carouselPaused || carouselSlides.length < 2) return;
+  carouselTimer = window.setInterval(() => {
+    showCarouselSlide(carouselIndex + 1);
+  }, 5500);
+}
+
+function setCarouselPaused(paused) {
+  carouselPaused = paused;
+  if (carouselPause) {
+    carouselPause.textContent = paused ? "Play" : "Pause";
+    carouselPause.setAttribute(
+      "aria-label",
+      paused ? "Play carousel" : "Pause carousel",
+    );
   }
+  startCarousel();
+}
 
-  function startCarousel() {
-    setInterval(() => {
-      currentIndex = (currentIndex + 1) % images.length;
-      updateCarousel();
-    }, 5000);
-  }
-
+if (carousel && carouselSlides.length) {
+  showCarouselSlide(0);
   startCarousel();
 
-  // Navbar shrink function
-  var navbarShrink = function () {
-    const navbarCollapsible = document.body.querySelector("#mainNav");
-    const brandLogo = document.body.querySelector(".brand-logo");
-    if (!navbarCollapsible) {
-      return;
-    }
-    if (window.scrollY === 0) {
-      navbarCollapsible.classList.remove("navbar-shrink");
-      brandLogo.classList.remove("active");
-    } else {
-      navbarCollapsible.classList.add("navbar-shrink");
-      brandLogo.classList.add("active");
-    }
-  };
-
-  navbarShrink();
-
-  // Shrink the navbar when page is scrolled
-  document.addEventListener("scroll", navbarShrink);
-
-  // Activate Bootstrap scrollspy on the main nav element
-  const mainNav = document.body.querySelector("#mainNav");
-  if (mainNav) {
-    new bootstrap.ScrollSpy(document.body, {
-      target: "#mainNav",
-      offset: 74,
+  carouselPrevious?.addEventListener("click", () => {
+    showCarouselSlide(carouselIndex - 1);
+    startCarousel();
+  });
+  carouselNext?.addEventListener("click", () => {
+    showCarouselSlide(carouselIndex + 1);
+    startCarousel();
+  });
+  carouselDots.forEach((dot) => {
+    dot.addEventListener("click", () => {
+      showCarouselSlide(Number(dot.dataset.carouselDot));
+      startCarousel();
     });
+  });
+  carouselPause?.addEventListener("click", () => {
+    setCarouselPaused(!carouselPaused);
+  });
+}
+
+document.querySelectorAll("[data-year]").forEach((year) => {
+  year.textContent = new Date().getFullYear().toString();
+});
+
+const eventDate = new Date(2026, 9, 27, 0, 0, 0);
+const countdownParts = {
+  days: document.querySelector("[data-days]"),
+  hours: document.querySelector("[data-hours]"),
+  minutes: document.querySelector("[data-minutes]"),
+  seconds: document.querySelector("[data-seconds]"),
+};
+
+function updateCountdown() {
+  if (Object.values(countdownParts).some((part) => !part)) return false;
+
+  const remaining = eventDate.getTime() - Date.now();
+  if (remaining <= 0) {
+    Object.values(countdownParts).forEach((part) => {
+      part.textContent = "00";
+    });
+    return false;
   }
 
-  // Collapse responsive navbar when toggler is visible
-  const navbarToggler = document.body.querySelector(".navbar-toggler");
-  const responsiveNavItems = [].slice.call(
-    document.querySelectorAll("#navbarResponsive .nav-link")
-  );
-  responsiveNavItems.map(function (responsiveNavItem) {
-    responsiveNavItem.addEventListener("click", () => {
-      if (window.getComputedStyle(navbarToggler).display !== "none") {
-        navbarToggler.click();
-      }
-    });
+  countdownParts.days.textContent = Math.floor(remaining / 86_400_000);
+  countdownParts.hours.textContent = String(
+    Math.floor((remaining % 86_400_000) / 3_600_000),
+  ).padStart(2, "0");
+  countdownParts.minutes.textContent = String(
+    Math.floor((remaining % 3_600_000) / 60_000),
+  ).padStart(2, "0");
+  countdownParts.seconds.textContent = String(
+    Math.floor((remaining % 60_000) / 1_000),
+  ).padStart(2, "0");
+  return true;
+}
+
+if (updateCountdown()) {
+  const countdownTimer = window.setInterval(() => {
+    if (!updateCountdown()) window.clearInterval(countdownTimer);
+  }, 1000);
+}
+
+let activeModal = null;
+let modalTrigger = null;
+
+function openModal(modal, trigger) {
+  if (!modal) return;
+  activeModal = modal;
+  modalTrigger = trigger;
+  modal.hidden = false;
+  body.classList.add("modal-open");
+  modal.querySelector(".modal-close")?.focus();
+}
+
+function closeModal() {
+  if (!activeModal) return;
+  activeModal.hidden = true;
+  body.classList.remove("modal-open");
+  modalTrigger?.focus();
+  activeModal = null;
+  modalTrigger = null;
+}
+
+const eventModal = document.querySelector("[data-event-modal]");
+document.querySelectorAll("[data-event-open]").forEach((trigger) => {
+  trigger.addEventListener("click", () => openModal(eventModal, trigger));
+});
+eventModal
+  ?.querySelector("[data-event-close]")
+  ?.addEventListener("click", closeModal);
+
+const galleryModal = document.querySelector("[data-gallery-modal]");
+const galleryImage = galleryModal?.querySelector("[data-gallery-image]");
+const galleryCaption = galleryModal?.querySelector("[data-gallery-caption]");
+const galleryTriggers = [...document.querySelectorAll("[data-gallery]")];
+let galleryIndex = 0;
+
+function showGalleryImage(index) {
+  if (!galleryImage || !galleryCaption || !galleryTriggers.length) return;
+  galleryIndex = (index + galleryTriggers.length) % galleryTriggers.length;
+  const trigger = galleryTriggers[galleryIndex];
+  galleryImage.src = trigger.dataset.gallery;
+  galleryImage.alt = trigger.querySelector("img")?.alt || "Event photograph";
+  galleryCaption.textContent = trigger.dataset.caption || "Entergrate event";
+}
+
+galleryTriggers.forEach((trigger, index) => {
+  trigger.addEventListener("click", () => {
+    showGalleryImage(index);
+    openModal(galleryModal, trigger);
   });
+});
+galleryModal
+  ?.querySelector("[data-gallery-prev]")
+  ?.addEventListener("click", () => showGalleryImage(galleryIndex - 1));
+galleryModal
+  ?.querySelector("[data-gallery-next]")
+  ?.addEventListener("click", () => showGalleryImage(galleryIndex + 1));
+galleryModal
+  ?.querySelector("[data-gallery-close]")
+  ?.addEventListener("click", closeModal);
 
-  // Activate SimpleLightbox plugin for portfolio items
-  new SimpleLightbox({
-    elements: "#portfolio a.portfolio-box img",
+document.querySelectorAll(".modal").forEach((modal) => {
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal) closeModal();
   });
-
-  const canvas = document.createElement("canvas");
-  const container = document.getElementById("canvas-container");
-  container.appendChild(canvas);
-
-  const renderer = new THREE.WebGLRenderer({
-    canvas: canvas,
-    antialias: true,
-    alpha: true,
-  });
-
-  const scene = new THREE.Scene();
-  const geometry = new THREE.BoxGeometry(1, 1, 1);
-  const material = new THREE.MeshStandardMaterial({ color: 0xffffff });
-  const mesh = new THREE.Mesh(geometry, material);
-  scene.add(mesh);
 });
 
-const modal = document.getElementById("modal");
-const fullImage = document.getElementById("full-image");
+document.addEventListener("keydown", (event) => {
+  if (activeModal === galleryModal && event.key === "ArrowLeft") {
+    showGalleryImage(galleryIndex - 1);
+  }
 
-const thumbnails = document.querySelectorAll(".gallery a");
+  if (activeModal === galleryModal && event.key === "ArrowRight") {
+    showGalleryImage(galleryIndex + 1);
+  }
 
-// / set cookie expiration time to the past
-var expires = new Date(0).toUTCString();
+  if (event.key === "Escape") {
+    closeNavigation();
+    closeModal();
+  }
 
-// set cookie value and SameSite attribute
-document.cookie = "mycookie=myvalue; expires=" + expires + "; SameSite=None";
-
-// Initialize a variable to keep track of the current image index
-let currentImageIndex = 0;
-
-// Loop through the thumbnails and add a click event listener
-thumbnails.forEach((thumbnail, index) => {
-  thumbnail.addEventListener("click", function (event) {
-    event.preventDefault();
-    const imageSrc = this.getAttribute("data-image");
-    fullImage.src = imageSrc;
-    modal.style.display = "block";
-    currentImageIndex = index;
-    document.body.style.overflow = "hidden";
-  });
-});
-
-// When the user clicks on the "Next" button, show the next image
-const nextBtn = document.querySelector(".next");
-nextBtn.addEventListener("click", function () {
-  currentImageIndex = (currentImageIndex + 1) % thumbnails.length;
-  const nextImageSrc = thumbnails[currentImageIndex].getAttribute("data-image");
-  fullImage.src = nextImageSrc;
-});
-
-// When the user clicks on the "Previous" button, show the previous image
-const prevBtn = document.querySelector(".prev");
-prevBtn.addEventListener("click", function () {
-  currentImageIndex =
-    (currentImageIndex - 1 + thumbnails.length) % thumbnails.length;
-  const prevImageSrc = thumbnails[currentImageIndex].getAttribute("data-image");
-  fullImage.src = prevImageSrc;
-});
-
-const stopAllVideos = () => {
-  var iframes = document.querySelectorAll("iframe");
-
-  Array.prototype.forEach.call(iframes, (iframe) => {
-    iframe.contentWindow.postMessage(
-      JSON.stringify({ event: "command", func: "stopVideo" }),
-      "*"
+  if (event.key === "Tab" && activeModal) {
+    const focusable = activeModal.querySelectorAll(
+      'button, a[href], input, textarea, select, [tabindex]:not([tabindex="-1"])',
     );
-  });
-};
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
 
-// close modal when user clicks outside of it
-const closeBtn = document.querySelector(".close");
-window.onclick = function (event) {
-  if (event.target == modal || event.target == closeBtn) {
-    modal.style.display = "none";
-    document.body.style.overflow = "auto";
-    stopAllVideos();
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
   }
-};
-
-// Set the date we're counting down to
-var countDownDate = new Date("Mar 19, 2025 17:00:00").getTime();
-
-// Update the count down every 1 second
-var x = setInterval(function () {
-  // Get today's date and time
-  var now = new Date().getTime();
-
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
-
-  // Calculate days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  // Output the result in an element with id="countdown"
-  document.querySelector("#countdown .days").textContent = days;
-  document.querySelector("#countdown .hours").textContent = hours;
-  document.querySelector("#countdown .minutes").textContent = minutes;
-  document.querySelector("#countdown .seconds").textContent = seconds;
-
-  // If the count down is over, show a message
-  if (distance < 0) {
-    clearInterval(x);
-    document.querySelector("#countdown").innerHTML = "Event has ended.";
-  }
-}, 1000);
-
-const openEventDetails = document.querySelector(".open_event_details");
-const modalContainer = document.querySelector(".event_modal-container");
-const closeModal = document.querySelector(".close-event_modal");
-
-openEventDetails.addEventListener("click", function () {
-  modalContainer.style.display = "flex";
-});
-
-closeModal.addEventListener("click", function () {
-  modalContainer.style.display = "none";
 });

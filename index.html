@@ -1,587 +1,427 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+      name="description"
+      content="Entergrate Finland connects immigrants, professionals, and communities through dialogue, practical workshops, stories, and social events."
     />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>Entergrate - Fostering Integration</title>
-    <!-- Favicon-->
+    <meta name="theme-color" content="#111a28" />
+    <meta property="og:title" content="Entergrate Finland" />
+    <meta
+      property="og:description"
+      content="Connecting communities for a more inclusive Finland."
+    />
+    <meta property="og:image" content="assets/img/work-safe-work-smart.jpg" />
+    <title>Entergrate Finland — Community, Dialogue, Opportunity</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <!-- Bootstrap Icons-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap"
       rel="stylesheet"
     />
-    <!-- Google fonts-->
-    <link
-      href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <!-- SimpleLightbox plugin CSS-->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css"
-      rel="stylesheet"
-    />
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css?v=20260808-7" />
+    <script src="js/scripts.js?v=20260808-3" defer></script>
   </head>
-  <body id="page-top">
-    <!-- Navigation-->
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
 
-    <nav
-      class="navbar navbar-expand-lg navbar-light fixed-top py-3"
-      id="mainNav"
-    >
-      <div class="container px-4 px-lg-5">
-        <a class="navbar-brand" href="#page-top">
-          <img src="assets/img/nav-logo.png" alt="Entergrate Finland logo" class="brand-logo" />
+    <nav class="site-nav" aria-label="Main navigation">
+      <div class="nav-inner shell">
+        <a class="brand" href="#top" aria-label="Entergrate Finland home">
+          <img src="assets/img/nav-logo.png" alt="" />
         </a>
         <button
-          class="navbar-toggler navbar-toggler-right"
+          class="nav-toggle"
           type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarResponsive"
-          aria-controls="navbarResponsive"
           aria-expanded="false"
-          aria-label="Toggle navigation"
+          aria-controls="nav-links"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span class="sr-only">Open navigation</span>
+          <span></span><span></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ms-auto my-2 my-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href="#about">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#programs">Programs</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#portfolio">In the Spotlight</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#contact">Contact</a>
-            </li>
-          </ul>
+        <div class="nav-links" id="nav-links">
+          <a href="#about">About</a>
+          <a href="#programs">What we do</a>
+          <a href="#our-work">Our work</a>
+          <a href="#spotlight">Spotlight</a>
+          <a href="#next-event">Next event</a>
+          <a class="nav-cta" href="#contact">Get involved</a>
         </div>
       </div>
     </nav>
-    <!-- Masthead-->
-    <div class="carousel-container masthead">
-      <div class="glitch-container">
-        <img
-          class="glitch-image current"
-          src="./assets/img/bg_1.jpg"
-          alt="Image 1"
-        />
-        <img class="glitch-image" src="./assets/img/bg_2.jpg" alt="Image 2" />
-        <img class="glitch-image" src="./assets/img/bg_3.jpg" alt="Image 3" />
-      </div>
-      <header class="masthead">
-        <div class="container px-4 px-lg-5 h-100">
-          <div
-            class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center"
-          >
-            <div class="col-lg-8 align-self-end">
-              <div class="speach_wrapper">
-                <h1 class="text-white font-weight-bold speach">
-                  Connecting communities for a more inclusive Finland.
-                </h1>
-              </div>
-              <div class="hero-meta">
-                <div class="hero-badges">
-                  <span class="hero-pill">Community</span>
-                  <span class="hero-pill">Dialogue</span>
-                  <span class="hero-pill">Opportunity</span>
-                </div>
-                <div class="hero-next">
-                  <span class="hero-next-label">Next: In the Spotlight</span>
-                  <span class="hero-next-detail">April 20 · Helsinki</span>
-                </div>
-              </div>
-              <hr class="divider" />
+
+    <main id="main-content">
+      <header class="hero" id="top">
+        <div class="hero-media" aria-hidden="true" data-carousel>
+          <img class="hero-slide active" src="assets/img/bg_1.jpg" alt="" />
+          <img class="hero-slide" src="assets/img/bg_2.jpg" alt="" />
+          <img class="hero-slide" src="assets/img/bg_3.jpg" alt="" />
+          <img class="hero-slide" src="assets/img/bg_4.jpg" alt="" />
+          <img class="hero-slide" src="assets/img/portfolio/fullsize/4.jpg" alt="" />
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="shell hero-inner">
+          <div class="hero-copy reveal">
+            <p class="eyebrow light">Immigrant-led community in Finland</p>
+            <h1>Everyone deserves a place to belong and a chance to thrive.</h1>
+            <p class="hero-intro">
+              Entergrate brings immigrants, professionals, employers, and local
+              communities together through honest dialogue, shared stories, and
+              practical opportunities.
+            </p>
+            <div class="button-row">
+              <a class="button primary" href="#next-event">Explore the workshop</a>
+              <a class="button secondary" href="#about">Discover Entergrate</a>
             </div>
-            <div class="col-lg-8 align-self-baseline">
-              <p class="text-white-75 mb-4">
-                At Entergrate, we are committed to supporting immigrants by
-                expanding our outreach and impact through our 'In the Spotlight'
-                events. Together, we can create a welcoming Finland where
-                immigrants can thrive both personally and professionally.
-              </p>
-              <a class="btn btn-primary btn-xl hero-cta" href="#about">
-                Discover what we do
-              </a>
-            </div>
+            <ul class="hero-values" aria-label="Our values">
+              <li>Community</li><li>Dialogue</li><li>Opportunity</li>
+            </ul>
           </div>
+
+          <a class="event-preview reveal" href="#next-event">
+            <span class="event-preview-label">Next workshop</span>
+            <strong>Work Safe.<br />Work Smart.</strong>
+            <span>Your Safety, Your Rights in Finland</span>
+            <time datetime="2026-10-27">Tuesday, 27 October 2026</time>
+            <span class="text-link">View workshop →</span>
+          </a>
+        </div>
+        <div class="carousel-controls" aria-label="Hero photographs">
+          <button type="button" data-carousel-prev aria-label="Previous photograph">←</button>
+          <div class="carousel-dots" aria-label="Choose photograph">
+            <button class="active" type="button" data-carousel-dot="0" aria-label="Show photograph 1" aria-current="true"></button>
+            <button type="button" data-carousel-dot="1" aria-label="Show photograph 2"></button>
+            <button type="button" data-carousel-dot="2" aria-label="Show photograph 3"></button>
+            <button type="button" data-carousel-dot="3" aria-label="Show photograph 4"></button>
+            <button type="button" data-carousel-dot="4" aria-label="Show photograph 5"></button>
+          </div>
+          <button type="button" data-carousel-next aria-label="Next photograph">→</button>
+          <button type="button" data-carousel-pause aria-label="Pause carousel">Pause</button>
         </div>
       </header>
-    </div>
 
-    <!-- About-->
-    <section class="page-section bg-primary" id="about">
-      <div class="container px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-          <div class="col-lg-8 text-center">
-            <h2 class="text-white mt-0">Entergrate Community in Finland</h2>
-            <hr class="divider divider-light" />
-            <p class="text-white-75 mb-4 about">
-              Entergrate is a community that strives to facilitate the
-              integration of immigrants into society. Our mission is to promote
-              professional and social inclusiveness for immigrants in Finland,
-              enabling them to contribute to the society and enrich their own
-              lives. Our members consist of both working professionals and
-              volunteers who form a network connecting immigrants with relevant
-              organizations.
-            </p>
-            <p class="text-white-75 mb-4 about">
-              We strongly believe in promoting networking and creating synergies
-              between various entities serving immigrant communities, locals,
-              and immigrant individuals.
-            </p>
-            <p class="text-white-75 mb-4 about">
-              By establishing connections and bringing people together, we aim
-              to ease the challenges immigrants encounter during their entry
-              into the labor market and in fitting into the society.
-            </p>
-            <a class="btn btn-light btn-xl memebership_btn" href="#programs"
-              >Activities</a
-            >
+      <section class="section about" id="about">
+        <div class="shell about-grid">
+          <div class="section-heading reveal">
+            <p class="eyebrow">About Entergrate</p>
+            <h2>A more inclusive Finland is built together.</h2>
           </div>
-        </div>
-      </div>
-    </section>
-    <!-- Programs-->
-    <section class="page-section" id="programs">
-      <div class="container px-4 px-lg-5">
-        <h2 class="text-center mt-0">What we do</h2>
-        <hr class="divider" />
-        <div class="row gx-4 gx-lg-5">
-          <div class="col-lg-4 col-md-6 text-center">
-            <div class="mt-5">
-              <div class="mb-2">
-                <i class="bi-lightbulb fs-1 text-primary"></i>
-              </div>
-              <h3 class="h4 mb-2">In the Spotlight events</h3>
-              <p class="text-muted mb-0">
-                This event series is a recurring panel discussion, scheduled to
-                occur bi-monthly for a total of six events in the year 2024.
-              </p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 text-center">
-            <div class="mt-5">
-              <div class="mb-2">
-                <i class="bi-collection-play-fill fs-1 text-primary"></i>
-              </div>
-              <h3 class="h4 mb-2">An Immigrant’s story</h3>
-              <p class="text-muted mb-0">
-                This project is an initiative that gathers and shares the
-                personal experiences of immigrants.
-              </p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 text-center">
-            <div class="mt-5">
-              <div class="mb-2">
-                <i class="bi-globe fs-1 text-primary"></i>
-              </div>
-              <h3 class="h4 mb-2">Entegration Social Club</h3>
-              <p class="text-muted mb-0">
-                Variety of social events such as excursions and tours of
-                restaurants
-              </p>
+          <div class="about-copy reveal">
+            <p class="lead">
+              Entergrate facilitates the professional and social integration of
+              immigrants into Finnish society.
+            </p>
+            <p>
+              Our community includes working professionals, volunteers, and
+              allies who connect immigrants with relevant organizations,
+              employers, and local networks. We create the conditions for people
+              to contribute their skills, build meaningful relationships, and
+              enrich their lives in Finland.
+            </p>
+            <div class="beliefs">
+              <div><span>01</span><p>Everyone should feel welcomed and seen.</p></div>
+              <div><span>02</span><p>Networks and dialogue open real opportunities.</p></div>
+              <div><span>03</span><p>Integration is a two-way process.</p></div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-    <!-- Programs-->
-    <!-- Modal -->
-    <div id="modal" class="modal">
-      <span class="close">&times;</span>
-      <div class="content">
-        <div class="modal-image">
-          <img id="full-image" src="https://via.placeholder.com/500x500" />
-        </div>
-        <div class="modal-video">
-          <iframe
-            class="video"
-            src="https://drive.google.com/file/d/1kT85xUhd9xImdCNCNhj3-jFTyOH6PYNX/preview"
-            frameborder="0"
-            allow="autoplay; fullscreen"
-            allowfullscreen
-          >
-          </iframe>
-          <div>
-            <p class="description">
-              Whether you're an immigrant yourself, a supporter of immigrant
-              rights, or simply someone who wants to stay informed on this
-              important issue, Entergrate's social links are an essential tools.
-              Follow us on Facebook, Instagram, and YouTube.
-            </p>
-            <div class="social_links">
-              <a
-                href="https://www.facebook.com/EntergrateFINLAND"
-                target="_blank"
-              >
-                <div class="mb-2">
-                  <i class="bi-facebook fs-1 text-primary"></i>
-                </div>
-              </a>
-              <a
-                href="https://www.instagram.com/entergratefinland"
-                target="_blank"
-              >
-                <div class="mb-2">
-                  <i class="bi-instagram fs-1 text-primary"></i>
-                </div>
-              </a>
-              <a
-                href="https://www.youtube.com/@entergratefinland"
-                target="_blank"
-              >
-                <div class="mb-2">
-                  <i class="bi-youtube fs-1 text-primary"></i>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <button class="prev">&#10094;</button>
-      <button class="next">&#10095;</button>
-    </div>
+      </section>
 
-    <div id="portfolio">
-      <div class="container-fluid p-0">
-        <div class="row g-0 gallery">
-          <div class="col-lg-4 col-sm-6">
-            <a
-              class="portfolio-box"
-              data-image="assets/img/portfolio/fullsize/1.jpg"
-              title="Project Name"
-            >
-              <img
-                class="img-fluid"
-                src="assets/img/portfolio/thumbnails/1.jpg"
-                alt="..."
-              />
-              <div class="portfolio-box-caption">
-                <div class="project-category text-white-50">Helsinki</div>
-                <div class="project-name">World Village Festival</div>
-              </div>
-            </a>
+      <section class="section programs" id="programs">
+        <div class="shell">
+          <div class="section-heading centered reveal">
+            <p class="eyebrow">What we do</p>
+            <h2>Different ways to connect, learn, and belong.</h2>
+            <p>Programs designed around real experiences and practical needs.</p>
           </div>
-          <div class="col-lg-4 col-sm-6">
-            <a
-              class="portfolio-box"
-              data-image="assets/img/portfolio/fullsize/2.jpg"
-              title="Project Name"
-            >
-              <img
-                class="img-fluid"
-                src="assets/img/portfolio/thumbnails/2.jpg"
-                alt="..."
-              />
-              <div class="portfolio-box-caption">
-                <div class="project-category text-white-50">Helsinki</div>
-                <div class="project-name">In The Spot Light Event</div>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-4 col-sm-6">
-            <a
-              class="portfolio-box"
-              data-image="assets/img/portfolio/fullsize/3.jpg"
-              title="Project Name"
-            >
-              <img
-                class="img-fluid"
-                src="assets/img/portfolio/thumbnails/3.jpg"
-                alt="..."
-              />
-              <div class="portfolio-box-caption">
-                <div class="project-category text-white-50">Helsinki</div>
-                <div class="project-name">In The Spot Light Event</div>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-4 col-sm-6">
-            <a
-              class="portfolio-box"
-              data-image="assets/img/portfolio/fullsize/4.jpg"
-              title="Project Name"
-            >
-              <img
-                class="img-fluid"
-                src="assets/img/portfolio/thumbnails/4.jpg"
-                alt="..."
-              />
-              <div class="portfolio-box-caption">
-                <div class="project-category text-white-50">Helsinki</div>
-                <div class="project-name">In The Spot Light Event</div>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-4 col-sm-6">
-            <a
-              class="portfolio-box"
-              data-image="assets/img/portfolio/fullsize/5.jpg"
-              title="Project Name"
-            >
-              <img
-                class="img-fluid"
-                src="assets/img/portfolio/thumbnails/5.jpg"
-                alt="..."
-              />
-              <div class="portfolio-box-caption">
-                <div class="project-category text-white-50">Helsinki</div>
-                <div class="project-name">In The Spot Light Event</div>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-4 col-sm-6">
-            <a
-              class="portfolio-box"
-              data-image="assets/img/portfolio/fullsize/6.jpg"
-              title="Project Name"
-            >
-              <img
-                class="img-fluid"
-                src="assets/img/portfolio/thumbnails/6.jpg"
-                alt="..."
-              />
-              <div class="portfolio-box-caption p-3">
-                <div class="project-category text-white-50">Helsinki</div>
-                <div class="project-name">Entergrate Social Club</div>
-              </div>
-            </a>
+          <div class="program-grid">
+            <article class="program-card reveal">
+              <span class="card-number">01</span>
+              <div class="card-icon">◎</div>
+              <h3>In the Spotlight</h3>
+              <p>
+                Workshops and panel conversations where immigrants, employers,
+                and communities explore work, wellbeing, inclusion, and belonging.
+              </p>
+            </article>
+            <article class="program-card reveal">
+              <span class="card-number">02</span>
+              <div class="card-icon">✦</div>
+              <h3>An Immigrant’s Story</h3>
+              <p>
+                Personal stories that make immigrant journeys, challenges, and
+                achievements visible—and help others feel less alone.
+              </p>
+            </article>
+            <article class="program-card reveal">
+              <span class="card-number">03</span>
+              <div class="card-icon">◇</div>
+              <h3>Entergrate Social Club</h3>
+              <p>
+                Meet-ups, excursions, cultural experiences, and relaxed community
+                gatherings where new friendships can grow.
+              </p>
+            </article>
           </div>
         </div>
-      </div>
-    </div>
-    <!-- Call to action-->
-    <section class="page-section bg-dark text-white countdown">
-      <div id="countdown">
-        <h2>Our next event is just days away!</h2>
-        <div class="timer">
-          <div>
-            <span class="days"></span>
-            <div class="smalltext">Days</div>
-          </div>
-          <div>
-            <span class="hours"></span>
-            <div class="smalltext">Hours</div>
-          </div>
-          <div>
-            <span class="minutes"></span>
-            <div class="smalltext">Minutes</div>
-          </div>
-          <div>
-            <span class="seconds"></span>
-            <div class="smalltext">Seconds</div>
-          </div>
-        </div>
-        <h2 class="open_event_details">See details</h2>
-      </div>
-      <div class="event_modal-container">
-        <div class="event_modal-content">
-          <h2>Up next: "In The Spotlight" panel discussion</h2>
-          <img
-            src="assets/img/IMG_0999.jpg"
-            alt=""
-            class="next_spotlight"
-          />
-          <!-- <iframe
-    
-            src="https://www.youtube.com/embed/CrzTiyjRCI0"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen></iframe> -->
-          <button class="close-event_modal">Close</button>
-        </div>
-      </div>
-    </section>
-    <section class="page-section bg-dark text-white">
-      <div class="text-center mb-3 join_us">
-        <h2 class="mb-2">
-          Join our social media to engage with like-minded individuals.
-        </h2>
-      </div>
-      <div class="social_links">
-        <a href="https://www.facebook.com/EntergrateFINLAND" target="_blank">
-          <div class="mb-2">
-            <i class="bi-facebook fs-1 text-primary"></i>
-          </div>
-        </a>
-        <a href="https://www.instagram.com/entergratefinland" target="_blank">
-          <div class="mb-2">
-            <i class="bi-instagram fs-1 text-primary"></i>
-          </div>
-        </a>
-        <a href="https://www.youtube.com/@entergratefinland" target="_blank">
-          <div class="mb-2">
-            <i class="bi-youtube fs-1 text-primary"></i>
-          </div>
-        </a>
-      </div>
-    </section>
-    <!-- Contact-->
-    <section class="page-section" id="contact">
-      <div class="container px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-          <div class="col-lg-8 col-xl-6 text-center">
-            <h2 class="mt-0">We'd Love to Hear From You!!</h2>
-            <hr class="divider" />
-            <p class="text-muted mb-5">
-              Let's Build an Inclusive Community Together! Send Us a Message and
-              We'll Get Back to You.
+      </section>
+
+      <section class="section work-archive" id="our-work">
+        <div class="shell">
+          <div class="section-heading split reveal">
+            <div>
+              <p class="eyebrow">Our work through the years</p>
+              <h2>Information becomes agency when people meet.</h2>
+            </div>
+            <p>
+              Entergrate is a volunteer-led Helsinki association working across
+              integration, employment, training, anti-racism, and community life.
+              Since 2019, its programs have created spaces to learn, speak openly,
+              and build connections across cultures.
             </p>
           </div>
-        </div>
-        <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
-          <div class="col-lg-6">
-            <form
-              id="contactForm"
-              action="https://formspree.io/f/moqzdggq"
-              method="POST"
-            >
-              <!-- Name input-->
-              <div class="form-floating mb-3">
-                <input
-                  class="form-control"
-                  id="name"
-                  type="text"
-                  placeholder="Enter your name..."
-                  required
-                  name="name"
-                />
-                <label for="name">Full name</label>
-                <div class="invalid-feedback" data-sb-feedback="name:required">
-                  A name is required.
-                </div>
+
+          <div class="archive-grid">
+            <article class="archive-card archive-feature reveal">
+              <img src="assets/img/event.jpg" alt="In the Spotlight event on Finnish immigration policy, diversity, and inclusion" loading="lazy" />
+              <div>
+                <p class="archive-date">October 2023 · Luckan Integration</p>
+                <h3>Immigration policy, diversity, and inclusion</h3>
+                <p>
+                  An In the Spotlight discussion featuring Fatima Usman—known as
+                  Mama Africa—sharing decades of experience supporting inclusion,
+                  culture, and community engagement in Finland.
+                </p>
               </div>
-              <!-- Email address input-->
-              <div class="form-floating mb-3">
-                <input
-                  class="form-control"
-                  id="email"
-                  type="email"
-                  name="email"
-                  placeholder="name@example.com"
-                  required
-                />
-                <label for="email">Email address</label>
-                <div class="invalid-feedback" data-sb-feedback="email:required">
-                  An email is required.
-                </div>
-                <div class="invalid-feedback" data-sb-feedback="email:email">
-                  Email is not valid.
-                </div>
+            </article>
+
+            <article class="archive-card reveal">
+              <img src="assets/img/event-flyer-3.jpg" alt="In the Spotlight flyer about economic stress and mental wellbeing" loading="lazy" />
+              <div>
+                <p class="archive-date">February 2024 · Helsinki</p>
+                <h3>Economic stress and mental wellbeing</h3>
+                <p>A practical conversation with coaching, economic, and psychology perspectives.</p>
               </div>
-              <!-- Phone number input-->
-              <div class="form-floating mb-3">
-                <input
-                  class="form-control"
-                  id="phone"
-                  type="tel"
-                  name="phone"
-                  placeholder="(123) 456-7890"
-                  data-sb-validations="required"
-                />
-                <label for="phone">Phone number</label>
-                <div class="invalid-feedback" data-sb-feedback="phone:required">
-                  A phone number is required.
-                </div>
+            </article>
+
+            <article class="archive-card reveal">
+              <img src="assets/img/event-flyer-4.jpg" alt="In the Spotlight event flyer about work security, labour law, rights, and wellbeing" loading="lazy" />
+              <div>
+                <p class="archive-date">In the Spotlight · Luckan</p>
+                <h3>Work security and labour law</h3>
+                <p>Career, legal, and wellbeing expertise focused on rights at work in Finland.</p>
               </div>
-              <!-- Message input-->
-              <div class="form-floating mb-3">
-                <textarea
-                  class="form-control"
-                  id="message"
-                  type="text"
-                  name="message"
-                  placeholder="Enter your message here..."
-                  style="height: 10rem"
-                  required
-                ></textarea>
-                <label for="message">Message</label>
-                <div
-                  class="invalid-feedback"
-                  data-sb-feedback="message:required"
-                >
-                  A message is required.
-                </div>
+            </article>
+
+            <article class="archive-card reveal">
+              <img src="assets/img/IMG_0999.jpg" alt="In the Spotlight flyer for Two Cultural Identities: Benefits and Challenges" loading="lazy" />
+              <div>
+                <p class="archive-date">March 2025 · Tiedekulma</p>
+                <h3>Two cultural identities</h3>
+                <p>A panel on the benefits and challenges of living across cultures.</p>
               </div>
-              <!-- Submit success message-->
-              <!---->
-              <!-- This is what your users will see when the form-->
-              <!-- has successfully submitted-->
-              <!-- <div class="d-none" id="submitSuccessMessage">
-                <div class="text-center mb-3">
-                  <div class="fw-bolder">Form submission successful!</div>
-                  To activate this form, sign up at
-                  <br />
-                  <a href="https://startbootstrap.com/solution/contact-forms"
-                    >https://startbootstrap.com/solution/contact-forms</a
-                  >
-                </div>
-              </div> -->
-              <!-- Submit error message-->
-              <!---->
-              <!-- This is what your users will see when there is-->
-              <!-- an error submitting the form-->
-              <!-- <div class="d-none" id="submitErrorMessage">
-                <div class="text-center text-danger mb-3">
-                  Error sending message!
-                </div>
-              </div> -->
-              <!-- Submit Button-->
-              <div class="d-grid">
-                <button
-                  class="btn btn-primary btn-xl"
-                  id="submitButton"
-                  type="submit"
-                >
-                  Submit
-                </button>
+            </article>
+
+            <article class="archive-card reveal">
+              <img src="assets/img/event-flyer-2.jpg" alt="Entergrate Children's Club visit to Oodi Central Library" loading="lazy" />
+              <div>
+                <p class="archive-date">2023 · Oodi Central Library</p>
+                <h3>Children’s Club</h3>
+                <p>Activities and an international environment for multilingual children and families.</p>
               </div>
-            </form>
+            </article>
+
+            <article class="archive-card reveal">
+              <img src="assets/img/event_1_2025.jpg" alt="Entergrate monthly community meet-up with participants talking together" loading="lazy" />
+              <div>
+                <p class="archive-date">Recurring community program</p>
+                <h3>Entergrate Meet</h3>
+                <p>Workshops, training, games, teamwork, and relaxed community connection.</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="research-highlights reveal">
+            <div><strong>Volunteer-led</strong><span>A Moniheli member association serving Helsinki and online communities.</span></div>
+            <div><strong>Integration · Information · Community</strong><span>Connecting immigrants, locals, organizations, and employers.</span></div>
+            <div><strong>TEDxViikki 2025</strong><span>Entergrate helped create a space for ideas, stories, connection, and inspiration.</span></div>
+            <div><strong>World Village Festival</strong><span>Community outreach and participation at Helsinki’s global action festival.</span></div>
+          </div>
+          <div class="public-profile-links reveal">
+            <span>Explore Entergrate’s public profiles:</span>
+            <a href="https://moniheli.fi/en/jarjestoprofiili/entergrate-ry/" target="_blank" rel="noreferrer">Moniheli member profile ↗</a>
+            <a href="https://www.linkedin.com/company/entergrate/" target="_blank" rel="noreferrer">LinkedIn updates ↗</a>
           </div>
         </div>
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-          <div class="col-lg-4 text-center mb-5 mb-lg-0">
-            <i class="bi-phone fs-2 mb-3 text-muted"></i>
-            <div>+358414896442</div>
+      </section>
+
+      <section class="section event-section" id="next-event">
+        <div class="shell event-grid">
+          <button class="event-poster reveal" type="button" data-event-open>
+            <img
+              src="assets/img/work-safe-work-smart.jpg"
+              alt="Work Safe, Work Smart workshop flyer about workplace safety and workers' rights in Finland"
+            />
+            <span>View workshop details</span>
+          </button>
+          <div class="event-content reveal">
+            <p class="eyebrow light">Upcoming workshop</p>
+            <h2>Work Safe.<br />Work Smart.</h2>
+            <p class="event-tagline">Your Safety, Your Rights in Finland</p>
+            <p>
+              A practical workshop series for immigrant workers in Helsinki,
+              focused on identifying workplace hazards, assessing risks,
+              understanding legal protections, and finding employer support.
+            </p>
+            <div class="event-meta">
+              <div><span>Date</span><strong>Tuesday, 27 October 2026</strong></div>
+              <div><span>Format</span><strong>Workshop · 60–90 minutes</strong></div>
+              <div><span>Location</span><strong>Helsinki · Details coming soon</strong></div>
+              <div><span>Admission</span><strong>Free · Registration to follow</strong></div>
+            </div>
+            <div class="countdown" aria-label="Countdown to the workshop">
+              <div><strong data-days>—</strong><span>Days</span></div>
+              <div><strong data-hours>—</strong><span>Hours</span></div>
+              <div><strong data-minutes>—</strong><span>Minutes</span></div>
+              <div><strong data-seconds>—</strong><span>Seconds</span></div>
+            </div>
+            <button class="button warm" type="button" data-event-open>
+              Workshop details
+            </button>
           </div>
         </div>
-      </div>
-    </section>
-    <!-- Footer-->
-    <footer class="bg-light py-5">
-      <div class="container px-4 px-lg-5">
-        <div class="small text-center text-muted">
-          Copyright &copy; 2023 - Entergrate.org | info@entergrate.org |
-          +358414896442
+      </section>
+
+      <section class="section spotlight" id="spotlight">
+        <div class="shell">
+          <div class="section-heading split reveal">
+            <div>
+              <p class="eyebrow">In the Spotlight</p>
+              <h2>Conversations become connections.</h2>
+            </div>
+            <p>
+              A glimpse into the events, discussions, and community moments that
+              bring Entergrate to life.
+            </p>
+          </div>
+          <div class="gallery-grid">
+            <button class="gallery-item wide reveal" type="button" data-gallery="assets/img/portfolio/fullsize/1.jpg" data-caption="World Village Festival community outreach">
+              <img src="assets/img/portfolio/fullsize/1.jpg" alt="Entergrate representative welcoming visitors at the World Village Festival" loading="lazy" />
+              <span><small>Community</small>World Village Festival</span>
+            </button>
+            <button class="gallery-item reveal" type="button" data-gallery="assets/img/portfolio/fullsize/4.jpg" data-caption="A panel exploring belonging and inclusion">
+              <img src="assets/img/portfolio/fullsize/4.jpg" alt="Entergrate panel discussion about belonging and inclusion" loading="lazy" />
+              <span><small>Dialogue</small>In the Spotlight</span>
+            </button>
+            <button class="gallery-item reveal" type="button" data-gallery="assets/img/portfolio/spotlight3.jpeg" data-caption="Speakers and contributors at an Entergrate event">
+              <img src="assets/img/portfolio/spotlight3.jpeg" alt="Four contributors standing after an Entergrate panel" loading="lazy" />
+              <span><small>People</small>Speakers & contributors</span>
+            </button>
+            <button class="gallery-item reveal" type="button" data-gallery="assets/img/portfolio/spotlight6.jpeg" data-caption="Networking and community connection">
+              <img src="assets/img/portfolio/spotlight6.jpeg" alt="A diverse group networking at an Entergrate gathering" loading="lazy" />
+              <span><small>Connection</small>Community networking</span>
+            </button>
+            <button class="gallery-item wide reveal" type="button" data-gallery="assets/img/portfolio/spotlight8.jpeg" data-caption="Audience participation during an Entergrate discussion">
+              <img src="assets/img/portfolio/spotlight8.jpeg" alt="An audience member contributing to an Entergrate discussion" loading="lazy" />
+              <span><small>Participation</small>Every voice matters</span>
+            </button>
+            <button class="gallery-item reveal" type="button" data-gallery="assets/img/spotlight4.jpeg" data-caption="A community speaker presenting at an Entergrate event">
+              <img src="assets/img/spotlight4.jpeg" alt="A speaker presenting at an Entergrate community event" loading="lazy" />
+              <span><small>Knowledge</small>Sharing experience</span>
+            </button>
+            <button class="gallery-item reveal" type="button" data-gallery="assets/img/spotlight7.jpeg" data-caption="A practical Entergrate workshop">
+              <img src="assets/img/spotlight7.jpeg" alt="Participants learning in a practical Entergrate workshop" loading="lazy" />
+              <span><small>Learning</small>Practical workshops</span>
+            </button>
+            <button class="gallery-item reveal" type="button" data-gallery="assets/img/portfolio/spotlight11.jpeg" data-caption="A member of the Entergrate community">
+              <img src="assets/img/portfolio/spotlight11.jpeg" alt="Portrait of an Entergrate community member" loading="lazy" />
+              <span><small>Stories</small>Community voices</span>
+            </button>
+            <button class="gallery-item reveal" type="button" data-gallery="assets/img/portfolio/spotlight12.jpeg" data-caption="A member of the Entergrate community">
+              <img src="assets/img/portfolio/spotlight12.jpeg" alt="Portrait of an Entergrate community member" loading="lazy" />
+              <span><small>Belonging</small>People of Entergrate</span>
+            </button>
+          </div>
         </div>
+      </section>
+
+      <section class="impact-band" aria-label="Community impact">
+        <div class="shell impact-grid">
+          <p>Building belonging through meaningful encounters.</p>
+          <div><strong>Community</strong><span>Meet people who understand the journey</span></div>
+          <div><strong>Knowledge</strong><span>Learn how Finland works in practice</span></div>
+          <div><strong>Opportunity</strong><span>Grow networks that open doors</span></div>
+        </div>
+      </section>
+
+      <section class="section contact" id="contact">
+        <div class="shell contact-grid">
+          <div class="contact-copy reveal">
+            <p class="eyebrow light">Get involved</p>
+            <h2>Let’s build a more inclusive community together.</h2>
+            <p>
+              Join the community, partner on an event, volunteer, or share your
+              story. We would love to hear from you.
+            </p>
+            <div class="contact-details">
+              <a href="mailto:info@entergrate.org">info@entergrate.org</a>
+              <a href="tel:+358449805932">+358 44 980 5932</a>
+            </div>
+            <div class="social-links" aria-label="Social media">
+              <a href="https://www.facebook.com/EntergrateFINLAND" target="_blank" rel="noreferrer">Facebook</a>
+              <a href="https://www.instagram.com/entergratefinland" target="_blank" rel="noreferrer">Instagram</a>
+              <a href="https://www.youtube.com/@entergratefinland" target="_blank" rel="noreferrer">YouTube</a>
+            </div>
+          </div>
+          <form class="contact-form reveal" action="https://formspree.io/f/moqzdggq" method="post">
+            <label>Name<input type="text" name="name" autocomplete="name" required /></label>
+            <label>Email<input type="email" name="email" autocomplete="email" required /></label>
+            <label>Phone <span>(optional)</span><input type="tel" name="phone" autocomplete="tel" /></label>
+            <label>Message<textarea name="message" rows="5" required></textarea></label>
+            <button class="button warm" type="submit">Send message</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-inner">
+        <a class="brand" href="#top"><img src="assets/img/nav-logo.png" alt="Entergrate Finland" /></a>
+        <p>Community · Dialogue · Opportunity</p>
+        <p>© <span data-year>2026</span> Entergrate Finland</p>
       </div>
     </footer>
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- SimpleLightbox plugin JS-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.135.0/build/three.min.js"></script>
 
-    <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
+    <div class="modal" data-event-modal hidden>
+      <div class="modal-panel event-modal-panel" role="dialog" aria-modal="true" aria-labelledby="event-title">
+        <button class="modal-close" type="button" data-event-close aria-label="Close workshop details">×</button>
+        <img src="assets/img/work-safe-work-smart.jpg" alt="" />
+        <div>
+          <p class="eyebrow">Upcoming workshop</p>
+          <h2 id="event-title">Work Safe. Work Smart.</h2>
+          <p class="lead">Your Safety, Your Rights in Finland</p>
+          <ul class="topic-list">
+            <li><strong>Identifying hazards</strong>Recognize physical and mental risks in Finnish workplaces.</li>
+            <li><strong>Risk assessment</strong>Learn likelihood, severity, and practical control measures.</li>
+            <li><strong>Know your rights</strong>Understand your legal protections under Finnish occupational safety law.</li>
+            <li><strong>Employer support</strong>Learn about orientation, protective equipment, and occupational healthcare.</li>
+          </ul>
+          <p class="modal-note">Time, venue, and registration details will be announced soon.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" data-gallery-modal hidden>
+      <div class="modal-panel gallery-modal-panel" role="dialog" aria-modal="true" aria-labelledby="gallery-caption">
+        <button class="modal-close" type="button" data-gallery-close aria-label="Close image">×</button>
+        <button class="gallery-modal-nav gallery-modal-prev" type="button" data-gallery-prev aria-label="Previous gallery image">←</button>
+        <img data-gallery-image src="" alt="" />
+        <button class="gallery-modal-nav gallery-modal-next" type="button" data-gallery-next aria-label="Next gallery image">→</button>
+        <p id="gallery-caption" data-gallery-caption></p>
+      </div>
+    </div>
   </body>
 </html>
