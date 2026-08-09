@@ -23,6 +23,10 @@ html {
   scroll-behavior: smooth;
 }
 
+section[id] {
+  scroll-margin-top: 4.5rem;
+}
+
 body {
   margin: 0;
   background: var(--paper);
@@ -849,15 +853,25 @@ h3 {
 
 /* Event */
 .event-section {
-  background: var(--ink);
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 8% 12%, rgba(244, 98, 58, 0.1), transparent 28%),
+    var(--ink);
   color: var(--white);
+  padding: clamp(4rem, 6vw, 5.5rem) 0;
 }
 
 .event-grid {
   display: grid;
   grid-template-columns: minmax(280px, 0.82fr) minmax(0, 1.18fr);
-  gap: clamp(3rem, 7vw, 7rem);
-  align-items: center;
+  gap: clamp(3rem, 6vw, 6rem);
+  align-items: start;
+}
+
+.event-visual {
+  display: grid;
+  gap: 1rem;
 }
 
 .event-poster {
@@ -881,24 +895,90 @@ h3 {
   transform: scale(1.025);
 }
 
-.event-poster span {
+.event-poster-date {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  display: flex;
+  gap: 0.65rem;
+  align-items: center;
+  padding: 0.7rem 0.85rem;
+  background: var(--orange);
+  color: var(--white);
+  text-align: left;
+}
+
+.event-poster-date b {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 2rem;
+  line-height: 0.9;
+}
+
+.event-poster-date small {
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.event-poster-action {
   position: absolute;
   inset: auto 1rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 0.8rem 1rem;
-  border-radius: 0.35rem;
   background: rgba(17, 26, 40, 0.9);
   color: var(--white);
   font-weight: 700;
+  text-align: left;
   backdrop-filter: blur(8px);
 }
 
 .event-content h2 {
-  font-size: clamp(3rem, 6vw, 6rem);
+  max-width: 650px;
+  margin-bottom: 0.75rem;
+  font-size: clamp(3.4rem, 5.2vw, 5.2rem);
+}
+
+.event-organizer {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 1.5rem);
+  padding: 0.8rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  background: transparent;
+}
+
+.event-organizer img {
+  width: clamp(52px, 6vw, 68px);
+  aspect-ratio: 1;
+  object-fit: contain;
+  background: var(--white);
+}
+
+.event-organizer span {
+  flex: 0 0 auto;
+  color: #ffc3ad;
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.event-organizer strong {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--white);
+  font-size: clamp(1.1rem, 1.8vw, 1.45rem);
+  line-height: 1;
+  letter-spacing: -0.025em;
 }
 
 .event-tagline {
   color: #ffc3ad;
-  font-size: clamp(1.25rem, 2.5vw, 1.8rem);
+  font-size: clamp(1.25rem, 2.2vw, 1.65rem);
   font-weight: 700;
 }
 
@@ -907,18 +987,57 @@ h3 {
   color: rgba(255, 255, 255, 0.7);
 }
 
+.event-essential {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  max-width: 650px;
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.event-essential span,
+.event-essential strong {
+  display: block;
+}
+
+.event-essential span {
+  margin-bottom: 0.25rem;
+  color: #ffc3ad;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.event-essential strong {
+  color: var(--white);
+}
+
 .event-meta {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.75rem;
-  margin: 2rem 0;
+  gap: 0;
+  margin: 1.75rem 0 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .event-meta div {
-  padding: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 0.4rem;
-  background: rgba(255, 255, 255, 0.055);
+  padding: 1rem 0;
+  border: 0;
+  background: transparent;
+}
+
+.event-meta div:nth-child(even) {
+  padding-left: 1.25rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.event-meta div:nth-child(n + 3) {
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .event-meta span,
@@ -936,17 +1055,45 @@ h3 {
 }
 
 .countdown {
-  display: flex;
-  gap: 0.7rem;
-  margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  max-width: 520px;
+  margin-bottom: 0;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .countdown div {
-  min-width: 5.2rem;
-  padding: 0.75rem;
-  border-radius: 0.35rem;
-  background: rgba(255, 255, 255, 0.08);
+  min-width: 0;
+  padding: 0.75rem 0.5rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
+  background: transparent;
   text-align: center;
+}
+
+.countdown div:last-child {
+  border-right: 0;
+}
+
+.countdown-label {
+  margin-bottom: 0.55rem;
+  color: #ffc3ad;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.event-footer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: end;
+}
+
+.event-footer .button {
+  min-height: 4.2rem;
+  white-space: nowrap;
 }
 
 .countdown strong,
@@ -1308,6 +1455,36 @@ h3 {
   padding: clamp(2rem, 5vw, 4rem);
 }
 
+.modal-organizer {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin: 0.65rem 0 1.1rem;
+}
+
+.modal-organizer img {
+  width: 64px;
+  aspect-ratio: 1;
+  object-fit: contain;
+  background: var(--white);
+}
+
+.modal-organizer p {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
+  font-weight: 800;
+}
+
+.modal-organizer p span {
+  display: block;
+  margin-bottom: 0.15rem;
+  color: var(--orange-dark);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
 .topic-list {
   display: grid;
   gap: 0.8rem;
@@ -1562,6 +1739,29 @@ h3 {
     grid-template-columns: 1fr;
   }
 
+  .event-essential {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .event-meta div:nth-child(even) {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .event-meta div:nth-child(n + 2) {
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  .event-footer {
+    grid-template-columns: 1fr;
+  }
+
+  .event-footer .button {
+    justify-self: start;
+    min-height: 3.25rem;
+  }
+
   .carousel-controls {
     top: auto;
     right: 0.75rem;
@@ -1602,6 +1802,14 @@ h3 {
   .countdown {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .countdown div:nth-child(2) {
+    border-right: 0;
+  }
+
+  .countdown div:nth-child(n + 3) {
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
   }
 
   .gallery-grid {

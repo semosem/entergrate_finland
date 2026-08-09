@@ -22,7 +22,7 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/styles.css?v=20260809-4" />
+    <link rel="stylesheet" href="css/styles.css?v=20260809-9" />
     <script src="js/scripts.js?v=20260808-3" defer></script>
   </head>
   <body>
@@ -301,13 +301,18 @@
 
       <section class="section event-section" id="next-event">
         <div class="shell event-grid">
-          <button class="event-poster reveal" type="button" data-event-open>
-            <img
-              src="assets/img/work-safe-work-smart.jpg"
-              alt="Work Safe, Work Smart workshop flyer about workplace safety and workers' rights in Finland"
-            />
-            <span>View workshop details</span>
-          </button>
+          <div class="event-visual reveal">
+            <button class="event-poster" type="button" data-event-open>
+              <img
+                src="assets/img/work-safe-work-smart.jpg"
+                alt="Work Safe, Work Smart workshop flyer about workplace safety and workers' rights in Finland"
+              />
+            </button>
+            <div class="event-organizer" aria-label="Organized by Educoncept Group">
+              <img src="assets/img/educoncept-group-logo.png" alt="Educoncept Group logo" />
+              <div><span>Organized by</span><strong>Educoncept Group</strong></div>
+            </div>
+          </div>
           <div class="event-content reveal">
             <p class="eyebrow light">Upcoming workshop</p>
             <h2>Work Safe.<br />Work Smart.</h2>
@@ -317,21 +322,15 @@
               focused on identifying workplace hazards, assessing risks,
               understanding legal protections, and finding employer support.
             </p>
-            <div class="event-meta">
-              <div><span>Date</span><strong>Tuesday, 27 October 2026</strong></div>
-              <div><span>Format</span><strong>Workshop · 60–90 minutes</strong></div>
-              <div><span>Location</span><strong>Helsinki · Details coming soon</strong></div>
-              <div><span>Admission</span><strong>Free · Registration to follow</strong></div>
+            <div class="event-essential">
+              <div>
+                <span>Tuesday, 27 October 2026</span>
+                <strong>Helsinki · Free workshop</strong>
+              </div>
+              <button class="button warm" type="button" data-event-open>
+                Workshop details
+              </button>
             </div>
-            <div class="countdown" aria-label="Countdown to the workshop">
-              <div><strong data-days>—</strong><span>Days</span></div>
-              <div><strong data-hours>—</strong><span>Hours</span></div>
-              <div><strong data-minutes>—</strong><span>Minutes</span></div>
-              <div><strong data-seconds>—</strong><span>Seconds</span></div>
-            </div>
-            <button class="button warm" type="button" data-event-open>
-              Workshop details
-            </button>
           </div>
         </div>
       </section>
@@ -481,6 +480,10 @@
         <img src="assets/img/work-safe-work-smart.jpg" alt="" />
         <div>
           <p class="eyebrow">Upcoming workshop</p>
+          <div class="modal-organizer">
+            <img src="assets/img/educoncept-group-logo.png" alt="Educoncept Group logo" />
+            <p><span>Organized by</span> Educoncept Group</p>
+          </div>
           <h2 id="event-title">Work Safe. Work Smart.</h2>
           <p class="lead">Your Safety, Your Rights in Finland</p>
           <ul class="topic-list">
