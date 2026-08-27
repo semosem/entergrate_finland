@@ -23,6 +23,34 @@ if (navToggle && navLinks) {
   });
 }
 
+const cookieBanner = document.getElementById('cookie-banner');
+const acceptCookiesButton = document.getElementById('accept-cookies');
+const rejectCookiesButton = document.getElementById('reject-cookies');
+
+const COOKIE_CHOICE_KEY = 'entergrate-cookie-choice';
+
+function saveCookieChoice(choice) {
+  localStorage.setItem(COOKIE_CHOICE_KEY, choice);
+  cookieBanner.hidden = true;
+}
+
+if (cookieBanner && acceptCookiesButton && rejectCookiesButton) {
+  const savedChoice = localStorage.getItem(COOKIE_CHOICE_KEY);
+
+  if (!savedChoice) {
+    cookieBanner.hidden = false;
+  }
+
+  acceptCookiesButton.addEventListener('click', function () {
+    saveCookieChoice('accepted');
+  });
+
+  rejectCookiesButton.addEventListener('click', function () {
+    saveCookieChoice('rejected');
+  });
+}
+
+
 const carousel = document.querySelector("[data-carousel]");
 const carouselSlides = [...document.querySelectorAll(".hero-slide")];
 const carouselDots = [...document.querySelectorAll("[data-carousel-dot]")];
