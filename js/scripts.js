@@ -58,6 +58,7 @@ const carouselPrevious = document.querySelector("[data-carousel-prev]");
 const carouselNext = document.querySelector("[data-carousel-next]");
 const carouselPause = document.querySelector("[data-carousel-pause]");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
 let carouselIndex = 0;
 let carouselTimer = null;
 let carouselPaused = prefersReducedMotion.matches;
@@ -65,14 +66,16 @@ let carouselPaused = prefersReducedMotion.matches;
 function showCarouselSlide(index) {
   if (!carouselSlides.length) return;
   carouselIndex = (index + carouselSlides.length) % carouselSlides.length;
+
   carouselSlides.forEach((slide, slideIndex) => {
-    slide.classList.toggle("active", slideIndex === carouselIndex);
+    slide.classList.toggle('active', slideIndex === carouselIndex);
   });
+
   carouselDots.forEach((dot, dotIndex) => {
     const isActive = dotIndex === carouselIndex;
-    dot.classList.toggle("active", isActive);
-    if (isActive) dot.setAttribute("aria-current", "true");
-    else dot.removeAttribute("aria-current");
+    dot.classList.toggle('active', isActive);
+    if (isActive) dot.setAttribute('aria-current', 'true');
+    else dot.removeAttribute('aria-current');
   });
 }
 
@@ -84,6 +87,7 @@ function stopCarousel() {
 function startCarousel() {
   stopCarousel();
   if (carouselPaused || carouselSlides.length < 2) return;
+
   carouselTimer = window.setInterval(() => {
     showCarouselSlide(carouselIndex + 1);
   }, 5500);
@@ -91,13 +95,16 @@ function startCarousel() {
 
 function setCarouselPaused(paused) {
   carouselPaused = paused;
+
   if (carouselPause) {
-    carouselPause.textContent = paused ? "Play" : "Pause";
+    carouselPause.textContent = paused ? 'Play' : 'Pause';
+
     carouselPause.setAttribute(
-      "aria-label",
-      paused ? "Play carousel" : "Pause carousel",
+      'aria-label',
+      paused ? 'Play carousel' : 'Pause carousel',
     );
   }
+
   startCarousel();
 }
 
@@ -105,21 +112,24 @@ if (carousel && carouselSlides.length) {
   showCarouselSlide(0);
   startCarousel();
 
-  carouselPrevious?.addEventListener("click", () => {
+  carouselPrevious?.addEventListener('click', () => {
     showCarouselSlide(carouselIndex - 1);
     startCarousel();
   });
-  carouselNext?.addEventListener("click", () => {
+
+  carouselNext?.addEventListener('click', () => {
     showCarouselSlide(carouselIndex + 1);
     startCarousel();
   });
+
   carouselDots.forEach((dot) => {
-    dot.addEventListener("click", () => {
+    dot.addEventListener('click', () => {
       showCarouselSlide(Number(dot.dataset.carouselDot));
       startCarousel();
     });
   });
-  carouselPause?.addEventListener("click", () => {
+
+  carouselPause?.addEventListener('click', () => {
     setCarouselPaused(!carouselPaused);
   });
 }
